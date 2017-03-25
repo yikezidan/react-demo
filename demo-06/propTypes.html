@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+    <title>验证别人的属性是否正确</title>
+</head>
+<body>
+<div id="dv"></div>
+<script type="text/babel">
+    var data = "123";
+    var MyTitle = React.createClass({
+        propTypes:{
+            title:React.propTypes.string.isRequired
+        }
+        ,
+        render:function(){
+            return <h1>{this.props.title}</h1>
+        }
+    })
+    ReactDOM.render(
+            <MyTitle title={data}/>,
+            docment.getElementById("dv")
+    )
+</script>
+</body>
+</html>

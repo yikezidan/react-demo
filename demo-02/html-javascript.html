@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>react demo-02</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div class="dv" id="dv"></div>
+<script type="text/babel">
+    var names = ['小华','小二','小红'];
+
+
+    var Abc=React.createClass({
+        getDefaultProps:function(){
+          return {
+              index:0 ,
+              mstate:200,
+              name:""
+          }
+        },
+        handClick:function(){
+            console.log("2222222222222222222");
+        },
+        render:function(){
+           var {name,index}= this.props;
+            return <div onClick={this.handClick}>{name}</div>
+        }
+    });
+    ReactDOM.render(
+    <div>
+    {
+        names.map(function(item,key){
+                return <Abc key={key} name={item}/>
+            })
+    }
+    </div>,
+            document.getElementById("dv")
+    );
+
+</script>
+</body>
+</html>
