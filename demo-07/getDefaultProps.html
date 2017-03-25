@@ -2,10 +2,26 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>默认属性</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+    <title>react demo-默认属性设置</title>
 </head>
 <body>
-
-
+<div id="dv"></div>
+<script type="text/babel">
+    var MyDefault = React.createClass({
+        getDefaultProps:function(){
+            return{title:"小贼，你好！"}
+        },
+        render:function(){
+            return <h1>{this.props.title}</h1>
+        }
+    })
+    ReactDOM.render(
+            <MyDefault/>,
+            document.getElementById("dv")
+    )
+</script>
 </body>
 </html>
